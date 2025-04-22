@@ -1,33 +1,29 @@
-# C# Advanced 📕
-**On this subject you already know the baisc of C# and you are ready for some advanced concepts and features. The focus will also be to build good programming habits and start working on problems and solutions individualy.  With that in mind we will learn:**
-* How to implement advanced object oriented concepts
-* How to build applications with advanced features
-* How the .NET Framework works in a bit more depth
-* Advanced features of the C# language in general
-
-## This Repository
-This repository will contain every piece of material about the subject. It will include:
-* Materials and documentation for the classes 
-* Code that we write on the classes
-* Homework
-
-## Important links 
-* [Presentations link](https://qinshiftacademy.talentlms.com/)
-* [Schedule](https://docs.google.com/spreadsheets/d/1hZkIwuGuEabKplYLDsUnhS-Hdvuz8fYF/edit?gid=808739868)
-
-## Resources for being up to date with C#
-#### Sites and newsletters
-* [C# Weekly Newsletter](https://csharpdigest.net/)
-* [dev.to C# corner](https://dev.to/t/csharp)
-* [dev.to .NET corner](https://dev.to/t/dotnet)
-* [W3Schools](https://www.w3schools.com/cs/cs_getstarted.asp)
-* [Old looking but very cool resource for C# and .NET](https://www.dotnetperls.com/)
-
-#### Books
-* [C# 7.0 in a nutshell](https://www.bookdepository.com/C--7-0-in-a-Nutshell/9781491987650)
-* [Microsoft official documentation (free)](https://docs.microsoft.com/en-us/dotnet/csharp/)
-* [C# in depth 4th Edition (Advanced)](https://www.bookdepository.com/C-Depth-4E-Jon-Skeet/9781617294532)
-
-## Contact
-Trainer: trainer@mail.com
-Assistant: assistant@mail.com
+# Exercises ✍
+## 1. Create a console application that detect provided names in a provided text 🔹
+* The application should ask for names to be entered until the user enteres x
+* After that the application should ask for a text
+* When that is done the application should show how many times that name was included in the text ignoring upper/lower case
+## 2. Create a console application that checks if a day is a working day 🔹
+* The app should request for a user to enter a date as an input or multiple inputs
+* The app should then open and see if the day is a working day
+* It should show the user a message whether the date they entered is working or not
+  * Weekends are not working
+  * 1 January, 7 January, 20 April, 1 May, 25 May, 3 August, 8 September, 12 October, 23 October and 8 December are not working days as well
+* It should ask the user if they want to check another date
+  * Yes - the app runs again
+  * No - the app closes
+## 3. Create a console application that plays rock - paper - scissors 🔹
+* There should be a menu with three options:
+  * Play
+    1. The user picks rock paper or scissors option
+    2. The application picks rock paper scissors on random
+    3. The user pick and the application pick are shown on the screen
+    4. The application shows the winner
+    5. The application saves 1 score to the user or the computer in the background
+    6. When the user hits enter it returns to the main menu 
+  * Stats
+    1. It shows how many wins the user and how many wins the computer has
+    2. It shows percentage of the wins and loses of the user
+    3. When the user hits enter it returns to the main menu
+  * Exit
+    1. It closes the application
