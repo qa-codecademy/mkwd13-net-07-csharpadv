@@ -1,4 +1,5 @@
 ﻿using AbstractAndInterface.Entities;
+using AbstractAndInterface.Interfaces;
 
 
 #region Abstract classes
@@ -31,6 +32,24 @@ if (tester.FoundBug())
 {
     Console.WriteLine("The tester found a bug! Please fix it!");
 }
+
+
+#endregion
+
+
+#region Interfaces
+
+
+void DoSomething(IHuman human, string name)
+{
+    human.Greet(name);
+    Console.WriteLine(human.SayGoodbye(name));
+}
+
+
+DoSomething(dev, "Slave");
+DoSomething(tester, "Slave");
+
 
 
 #endregion

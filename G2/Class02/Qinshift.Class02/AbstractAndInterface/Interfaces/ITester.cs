@@ -1,6 +1,6 @@
 ﻿namespace AbstractAndInterface.Interfaces
 {
-    public interface ITester
+    public interface ITester : IHuman
     {
         void DocumentBugs();
         void WriteTestCases();
