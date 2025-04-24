@@ -1,6 +1,8 @@
-﻿namespace AbstractAndInterface.Entities
+﻿using AbstractAndInterface.Interfaces;
+
+namespace AbstractAndInterface.Entities
 {
-    public abstract class Human
+    public abstract class Human : IHuman
     {
         public Human(string fullName, int age, long phoneNumber)
         {
@@ -18,6 +20,11 @@
         public void Greet(string name)
         {
             Console.WriteLine($"Hey there {name}! My name is {FullName}");
+        }
+
+        public string SayGoodbye(string name)
+        {
+            return $"Bye bye {name}";
         }
     }
 }

@@ -16,6 +16,7 @@ Console.WriteLine("The Developer:");
 Console.WriteLine(dev.GetInfo());
 dev.Greet("Students");
 dev.Code();
+dev.Debug();
 
 
 Console.WriteLine("---------------------------");
@@ -23,8 +24,13 @@ Console.WriteLine("The tester:");
 Console.WriteLine(tester.GetInfo());
 tester.Greet("Students");
 tester.TestFeature("Demo example feature");
+tester.WriteTestCases();
+tester.DocumentBugs();
 
-
+if (tester.FoundBug())
+{
+    Console.WriteLine("The tester found a bug! Please fix it!");
+}
 
 
 #endregion
