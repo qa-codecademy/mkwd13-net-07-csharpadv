@@ -1,4 +1,6 @@
-﻿Console.WriteLine("================ TASK 01 ================");
+﻿using Task01.Logic.Services;
+
+Console.WriteLine("================ TASK 01 ================");
 /*
     ## 1. Create a console application that detects provided names in a provided text
     * The application should ask for names to be entered until the user enters 'x'.
@@ -17,3 +19,13 @@ string text = @"
     Even Anna stopped by with a basket of fruit as a thank-you gift. Everyone agreed that it was a day to remember, thanks to John, Anna, Mark, and Lisa.
 ";
 
+TextService textService = new TextService();
+
+var result = textService.CountNameAppearancesInText(text, names);
+
+foreach (var nameCount in result)
+{
+    Console.WriteLine($"Name: {nameCount.Name}. Count: {nameCount.Count}.");
+}
+
+Console.ReadLine();
