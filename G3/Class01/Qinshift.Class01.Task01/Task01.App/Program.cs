@@ -1,4 +1,6 @@
 ﻿
+using Task01.Logic.Services;
+
 Console.WriteLine("============== TASK 01 ==============");
 /*
     1. Create a console application that detect provided names in a provided text 
@@ -7,7 +9,11 @@ Console.WriteLine("============== TASK 01 ==============");
         => When that is done the application should show how many times each name was included in the text (ignoring upper/lower case)
 */
 
+TextService textService = new TextService();
+
 List<string> names = new List<string>() { "John", "Anna", "mark", "LisA" };
+// John - 5
+// Anna - 3...
 
 string text = @"
     Once upon a time in a small village, there lived a man named John. John was known for his kindness and generosity.
@@ -17,3 +23,10 @@ string text = @"
     The next day, Mark visited John again, and they talked about how successful the event was.
     Even Anna stopped by with a basket of fruit as a thank-you gift. Everyone agreed that it was a day to remember, thanks to John, Anna, Mark, and Lisa.
 ";
+
+var result = textService.CountAppearancesInText(text, names);
+
+foreach (var item in result)
+{
+    Console.WriteLine($"Name: {item.Name}. Count: {item.Count}");
+}
