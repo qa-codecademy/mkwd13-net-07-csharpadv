@@ -7,9 +7,11 @@ namespace Task01.Logic.Services
     {
         public List<NameCountResult> CountAppearancesInText(string text, List<string> names)
         {
-            string[] wordsInText = text.Split(' ');
-            List<NameCountResult> namesCountResult = new List<NameCountResult>();
+            //string[] wordsInText = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            string[] wordsInText = text.Split(new char[] { ' ', ',', '.'}, StringSplitOptions.RemoveEmptyEntries);
 
+            List<NameCountResult> namesCountResult = new List<NameCountResult>();
+            
             foreach (string name in names)
             {
                 int nameCounter = 0;

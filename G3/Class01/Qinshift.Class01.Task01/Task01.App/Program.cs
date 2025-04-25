@@ -30,3 +30,5 @@ foreach (var item in result)
 {
     Console.WriteLine($"Name: {item.Name}. Count: {item.Count}");
 }
+
+Console.ReadLine();
