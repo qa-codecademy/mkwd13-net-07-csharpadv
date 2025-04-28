@@ -1,8 +1,10 @@
 ﻿using Abstractions.Entities.BaseEntity;
+using Abstractions.Entities.Interfaces;
 
 namespace Abstractions.Entities.Models
 {
-    public class QAEngineer : Human
+    // We can inherit from multiple interfaces at a time
+    public class QAEngineer : Human, ITester, IDeveloper
     {
         public List<string> TestingFrameworks { get; set; }
 
@@ -15,6 +17,20 @@ namespace Abstractions.Entities.Models
         public override string GetInfo()
         {
             return $"{GetFullName()} ({Age}) - Knows testing frameworks {string.Join(", ", TestingFrameworks)}";
+        }
+
+        public void TestFeature(string feature)
+        {
+            Console.WriteLine("Run Unit Tests ...");
+            Console.WriteLine("Run Automated Tests ...");
+            Console.WriteLine($"Tests for the {feature} feature are completed!");
+        }
+
+        public void Code()
+        {
+            Console.WriteLine("tak tak tak");
+            Console.WriteLine("Write Automation tests ...");
+            Console.WriteLine("tak tak tak");
         }
     }
 }
