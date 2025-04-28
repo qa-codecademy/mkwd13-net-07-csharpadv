@@ -1,8 +1,9 @@
 ﻿using Abstractions.Entities.BaseEntity;
+using Abstractions.Entities.Interfaces;
 
 namespace Abstractions.Entities.Models
 {
-    public class Developer : Human
+    public class Developer : Human, IDeveloper
     {
         //public int Id { get; set; }
         //public string FirstName { get; set; } = string.Empty;
@@ -23,14 +24,16 @@ namespace Abstractions.Entities.Models
             FeaturesDeveloped = featuresDeveloped;
         }
 
-        public string GetFullName()
+        public override string GetInfo()
         {
-            return $"{FirstName} {LastName}";
+            return $"{GetFullName()} ({Age}) - {FeaturesDeveloped} features developed!";
         }
 
-        public string GetInfo()
+        public void Code()
         {
-            return $"{GetFullName()} ({Age}) - knows {ProgrammingLanguages.Count} programming languages.";
+            Console.WriteLine("tak tak tak ....");
+            Console.WriteLine("Opens ChatGPT ....");
+            Console.WriteLine("tak tak tak tak tak....");
         }
     }
 }

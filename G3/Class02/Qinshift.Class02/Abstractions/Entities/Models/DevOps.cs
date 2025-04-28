@@ -15,9 +15,12 @@ namespace Abstractions.Entities.Models
 
         public override string GetInfo()
         {
-            return "DevOps something...";
+            string result = $"{GetFullName()} ({Age}) - Has: ";
+            result += AWSCertified ? "AWS Certificate" : "";
+            result += AzureCertified ? " Azure Certificate" : "";
+            result += AWSCertified || AzureCertified ? "" : "No certificates yet";
+            return result;
         }
-
 
     }
 }
