@@ -29,7 +29,7 @@ while (isRunning)
         case 1:
             ConsoleHelper.WriteInColor("\nList of Users:", ConsoleColor.Magenta);
             OrdersTempDB.ListUsers();
-            OrdersTempDB.ListUsers();
+            //OrdersTempDB.ListUsers();
             break;
         case 2:
             ConsoleHelper.WriteInColor("\nEnter User Id:", ConsoleColor.Yellow);
