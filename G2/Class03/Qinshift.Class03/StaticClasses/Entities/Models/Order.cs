@@ -1,4 +1,5 @@
 ﻿using StaticClasses.Entities.Enums;
+using StaticClasses.Entities.Helpers;
 
 namespace StaticClasses.Entities.Models
 {
@@ -18,7 +19,7 @@ namespace StaticClasses.Entities.Models
 
         public string GetOrderInfo()
         {
-            return $"{Title} - {Description}";
+            return $"{TextHelper.CapitalizeFirstLetter(Title)} - {Description}";
         }
     }
 }
