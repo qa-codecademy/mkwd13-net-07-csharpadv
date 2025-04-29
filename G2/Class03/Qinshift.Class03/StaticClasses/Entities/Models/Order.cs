@@ -10,7 +10,7 @@ namespace StaticClasses.Entities.Models
         public string Description { get; set; }
         public OrderStatus Status { get; set; }
 
-        public Order(int id, string title, string description, OrderStatus status) : base(id)
+        public Order(int id, string title, string description, OrderStatus status = OrderStatus.Processing) : base(id)
         {
             Title = title;
             Description = description;
@@ -19,6 +19,7 @@ namespace StaticClasses.Entities.Models
 
         public string GetOrderInfo()
         {
+            // We can use the helper class anywhere we need it without an instance
             return $"{TextHelper.CapitalizeFirstLetter(Title)} - {Description}";
         }
     }
