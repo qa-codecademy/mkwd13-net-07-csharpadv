@@ -16,6 +16,7 @@ namespace StaticClasses.Entities.Models
             Title = title;
             Description = description;
             Status = status;
+            ConsoleHelper.WriteInColor(OrdersStaticDB.Orders.Count.ToString(), ConsoleColor.Yellow);
         }
 
         public string GetInfo()
