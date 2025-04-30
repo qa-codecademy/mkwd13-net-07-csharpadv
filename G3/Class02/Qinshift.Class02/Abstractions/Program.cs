@@ -1,4 +1,5 @@
 ﻿using Abstractions.Entities.BaseEntity;
+using Abstractions.Entities.Interfaces;
 using Abstractions.Entities.Models;
 
 Console.WriteLine("Hello, World!");
@@ -17,6 +18,11 @@ QAEngineer qa = new(5, "Steve", "Stevenson", 33, "567-567-5678", new List<string
 // => Can't create an instance of an abstract class
 //Human human = new Human();
 
+Human juniorDev = new Developer(10, "James", "Smith", 34, "223 305", new List<string> { "JavaScript", "C#", "Java" }, 150);
+//juniorDev.Code();
+
+IDeveloper juniorIDev = new Developer(10, "James", "Smith", 34, "223 305", new List<string> { "JavaScript", "C#", "Java" }, 150);
+juniorIDev.Code();
 #endregion
 
 
