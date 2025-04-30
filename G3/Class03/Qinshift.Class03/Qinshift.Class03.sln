@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35825.156 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism", "Polymorphism\Polymorphism.csproj", "{2B8FBC38-36E3-46A3-A57E-F144736BEDF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticClasses", "StaticClasses\StaticClasses.csproj", "{DD42ACAB-645D-4B4A-99CB-5D724D3513CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2B8FBC38-36E3-46A3-A57E-F144736BEDF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B8FBC38-36E3-46A3-A57E-F144736BEDF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B8FBC38-36E3-46A3-A57E-F144736BEDF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD42ACAB-645D-4B4A-99CB-5D724D3513CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD42ACAB-645D-4B4A-99CB-5D724D3513CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD42ACAB-645D-4B4A-99CB-5D724D3513CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD42ACAB-645D-4B4A-99CB-5D724D3513CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
