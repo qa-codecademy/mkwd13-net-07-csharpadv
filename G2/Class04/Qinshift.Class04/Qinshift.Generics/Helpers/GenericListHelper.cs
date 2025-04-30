@@ -7,7 +7,6 @@ namespace Qinshift.Generics.Helpers
         {
             foreach (T item in items)
             {
-                Console.WriteLine(item.Name);
                 Console.WriteLine(item);
             }
         }

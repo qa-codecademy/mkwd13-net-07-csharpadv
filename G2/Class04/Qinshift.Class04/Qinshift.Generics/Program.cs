@@ -36,9 +36,31 @@ GenericListHelper<int>.GoThroughItems(numbers);
 GenericListHelper<bool>.GoThroughItems(booleans);
 
 
+Console.WriteLine("============== Generic DB implementation ==============");
+
 List<Product> products = new List<Product>()
 {
-    new Product() {Name = "Prod 1", Description = "Prod desc 1"},
-    new Product() {Name = "Prod 2", Description = "Prod desc 2"},
+    new Product() {Id = 1, Name = "Prod 1", Description = "Prod desc 1"},
+    new Product() {Id = 2, Name = "Prod 2", Description = "Prod desc 2"},
 };
-GenericListHelper<Product>.GoThroughItems(products);
+
+List<Order> orders = new List<Order>
+{
+    new Order() {Id = 1, Receiver = "Darko", Address = "Test address 1"},
+    new Order() {Id = 2, Receiver = "Slave", Address = "Test address 2"},
+    new Order() {Id = 3, Receiver = "Sandra", Address = "Test address 3"},
+};
+
+GenericDb<Product> productsDb = new GenericDb<Product>();
+GenericDb<Order> ordersDb = new GenericDb<Order>();
+
+// This will not work since int or List<int> is not BaseEntity (Doesn't inherit from BaseEntity)
+//GenericDb<int> numbersDb = new GenericDb<int>();
+//GenericDb<List<int>> genericDb = new GenericDb<List<int>>();
+
+productsDb.InsertRange(products);
+ordersDb.InsertRange(orders);
+
+
+productsDb.PrintAll();
+ordersDb.PrintAll();
