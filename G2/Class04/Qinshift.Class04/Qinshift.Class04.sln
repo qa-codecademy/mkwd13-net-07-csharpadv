@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35514.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.Generics", "Qinshift.Generics\Qinshift.Generics.csproj", "{A4B0EA3F-BCF6-4555-8AAA-14AFF40926CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.ExtensionMethods", "Qinshift.ExtensionMethods\Qinshift.ExtensionMethods.csproj", "{CC4D9F4A-ACB7-422A-8023-76F3895313AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4B0EA3F-BCF6-4555-8AAA-14AFF40926CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B0EA3F-BCF6-4555-8AAA-14AFF40926CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B0EA3F-BCF6-4555-8AAA-14AFF40926CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B0EA3F-BCF6-4555-8AAA-14AFF40926CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC4D9F4A-ACB7-422A-8023-76F3895313AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC4D9F4A-ACB7-422A-8023-76F3895313AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC4D9F4A-ACB7-422A-8023-76F3895313AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC4D9F4A-ACB7-422A-8023-76F3895313AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
