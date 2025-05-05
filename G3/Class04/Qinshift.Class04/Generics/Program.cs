@@ -1,4 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Generics.Domain.Models;
+using Generics.Entities.Data;
+using Generics.Entities.Models;
 using Generics.Helpers;
 
 /*
@@ -67,8 +70,32 @@ Console.ForegroundColor = ConsoleColor.Cyan;
 Console.WriteLine("\n================ Generic Classes ================\n");
 Console.ResetColor();
 
+Product mobilePhone = new Product() { Id = 10, Title = "Mobile Phone", Description = "Mobile Phone Description" };
+Console.WriteLine(mobilePhone.GetType().Name);
+Console.WriteLine(mobilePhone);
 
+GenericDb<Product> ProductsDB = new GenericDb<Product>();
+ProductsDB.Insert(mobilePhone);
+ProductsDB.Insert(new Product { Id = 20, Title = "Keyboard", Description = "Mechanical" });
+ProductsDB.Insert(new Product { Id = 30, Title = "USB", Description = "64GB" });
+List<Product> allProducts = ProductsDB.GetAll();
 
+GenericDb<Order> OrdersDB = new GenericDb<Order>();
+OrdersDB.Insert(new Order { Id = 1, Address = "Bobsky St.", Receiver = "Bob Bobsky" });
+OrdersDB.Insert(new Order { Id = 2, Address = "Jill St.", Receiver = "Jill Bobsky" });
+OrdersDB.Insert(new Order { Id = 3, Address = "Greg St.", Receiver = "Greg Gregsky" });
+List<Order> allOrders = OrdersDB.GetAll();
 
-
+ProductsDB.PrintAll();
+OrdersDB.PrintAll();
 #endregion
+
+
+#region Using generics within a certain scope
+// only classes derived from BaseEntity are allowed to use GenericDb<T>
+// this is possible because we've added "where T : BaseEntity" 
+// GenericDb<string> StringsDB = new GenericDb<string>();
+// GenericDb<Dog> DogsDB = new GenericDb<Dog>();
+#endregion
+
+Console.ReadLine();
