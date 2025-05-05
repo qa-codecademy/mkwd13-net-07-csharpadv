@@ -28,26 +28,3 @@ plane.DisplayInfo()
 // Im a plane i have couple of wheels :)
 ```
 
-## Task 3
-
-From the previous task get the implementation and DO NOT CHANGE the implementation of the classes.
-
-Now we need to EXTEND the functionalities with a couple of methods:
-* Car objects should have Drive() method;
-* MotorBike should have Wheelie() method;
-* Boat should have Sail() method;
-* Airplane should have Fly() method; <br>
-
-```
-// this goes after the code from the previous task
-car.Drive();
-motorBike.Wheelie();
-boat.Sail();
-plane.Fly();
-
-//Console output
-// The car is driving
-// The motorbike is driving on one wheel
-// The boat is sailing
-// The airplane is flying
-```
