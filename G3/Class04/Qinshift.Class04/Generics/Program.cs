@@ -74,6 +74,9 @@ Product mobilePhone = new Product() { Id = 10, Title = "Mobile Phone", Descripti
 Console.WriteLine(mobilePhone.GetType().Name);
 Console.WriteLine(mobilePhone);
 
+object anonymousObj = new { };
+List<Product> products = new();
+
 GenericDb<Product> ProductsDB = new GenericDb<Product>();
 ProductsDB.Insert(mobilePhone);
 ProductsDB.Insert(new Product { Id = 20, Title = "Keyboard", Description = "Mechanical" });
