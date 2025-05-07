@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generics", "Generics\Generics.csproj", "{99CD7DE8-2B40-42BF-B1A7-9BF0E0325589}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethods", "ExtensionMethods\ExtensionMethods.csproj", "{BF23C81A-5FDA-46C8-A29E-3F445D520DC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{99CD7DE8-2B40-42BF-B1A7-9BF0E0325589}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99CD7DE8-2B40-42BF-B1A7-9BF0E0325589}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99CD7DE8-2B40-42BF-B1A7-9BF0E0325589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF23C81A-5FDA-46C8-A29E-3F445D520DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF23C81A-5FDA-46C8-A29E-3F445D520DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF23C81A-5FDA-46C8-A29E-3F445D520DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF23C81A-5FDA-46C8-A29E-3F445D520DC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
