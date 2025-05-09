@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionsRecap", "Extensio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnonymousMethods", "AnonymousMethods\AnonymousMethods.csproj", "{B81C8E64-9E98-4DB5-8D8C-0C67D22D47FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqMethods", "LinqMethods\LinqMethods.csproj", "{CC76F7E7-1448-493D-968A-4288A8FC9CD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B81C8E64-9E98-4DB5-8D8C-0C67D22D47FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B81C8E64-9E98-4DB5-8D8C-0C67D22D47FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B81C8E64-9E98-4DB5-8D8C-0C67D22D47FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC76F7E7-1448-493D-968A-4288A8FC9CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC76F7E7-1448-493D-968A-4288A8FC9CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC76F7E7-1448-493D-968A-4288A8FC9CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC76F7E7-1448-493D-968A-4288A8FC9CD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

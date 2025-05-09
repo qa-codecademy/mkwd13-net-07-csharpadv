@@ -1,4 +1,5 @@
 ﻿using LinqMethods.Helpers;
+using LinqMethods.Models;
 
 ConsoleHelper.PrintInColor("\n==================== LINQ ====================\n", ConsoleColor.DarkCyan);
 
@@ -6,8 +7,9 @@ ConsoleHelper.PrintInColor("\n==================== LINQ ====================\n",
 
 
 ConsoleHelper.PrintInColor("\n================== Where ==================\n", ConsoleColor.Red);
-
-
+IEnumerable<Student> findBobs = SEDC.Students.Where(s => s.FirstName == "Bob");
+List<Student> findBobsToList = SEDC.Students.Where(s => s.FirstName == "Bob").ToList();
+findBobsToList.PrintEntities();
 
 
 ConsoleHelper.PrintInColor("\n================== Select ==================\n", ConsoleColor.Yellow);
