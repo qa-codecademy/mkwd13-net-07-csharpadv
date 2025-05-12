@@ -150,6 +150,9 @@ Console.WriteLine(areAdults); // true
 
 ConsoleHelper.PrintInColor("\n================== Except ==================\n", ConsoleColor.Red);
 
+List<Student> exceptPartTime = SEDC.Students
+    .Except(SEDC.Students.Where(s => s.IsPartTime))
+    .ToList();
 
 
 
@@ -157,14 +160,32 @@ ConsoleHelper.PrintInColor("\n================== Except ==================\n", C
 
 ConsoleHelper.PrintInColor("\n================== OrderBy/ThenBy (Descending) ==================\n", ConsoleColor.Yellow);
 
+List<Student> sortedStudents = SEDC.Students
+    .OrderBy(s => s.FirstName)
+    .ToList();
+sortedStudents.PrintEntities();
 
+List<Student> sortedStudentsDesc = SEDC.Students
+    .OrderByDescending(s => s.FirstName)
+    .ToList();
+sortedStudentsDesc.PrintEntities();
 
-
+List<Student> sortedStudentsThenBy = SEDC.Students
+    .OrderBy(s => s.FirstName)
+    .ThenBy(s => s.Age)
+    .ThenBy(s => s.Id)
+    .ToList();
+sortedStudentsThenBy.PrintEntities();
 
 
 ConsoleHelper.PrintInColor("\n================== GroupBy ==================\n", ConsoleColor.Green);
 
+var groupByAcademy = SEDC.Subjects
+    .GroupBy(s => s.Type)
+    .ToList();
 
+groupByAcademy[0].ToList().PrintEntities();
+groupByAcademy[(int)Academy.Networks].ToList().PrintEntities();
 
 
 
