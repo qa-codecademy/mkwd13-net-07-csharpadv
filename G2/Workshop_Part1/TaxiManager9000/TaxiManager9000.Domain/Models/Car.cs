@@ -1,4 +1,6 @@
-﻿namespace TaxiManager9000.Domain.Models
+﻿using TaxiManager9000.Domain.Enums;
+
+namespace TaxiManager9000.Domain.Models
 {
     public class Car : BaseEntity
     {
@@ -24,6 +26,13 @@
         {
             int assignedPercent = DriversAssigned.Count == 0 ? 0 : 100 / 3 * DriversAssigned.Count + 1;
             return $"{Id}) {Model} with license plate {LicensePlate} and utilized {assignedPercent}%";
+        }
+
+        public ExpiryStatus IsLicensePlateExpired()
+        {
+            if (DateTime.Today >= LicensePlateExpiryDate) return ExpiryStatus.Expired;
+            else if (DateTime.Today.AddMonths(3) >= LicensePlateExpiryDate) return ExpiryStatus.Warning;
+            else return ExpiryStatus.Valid;
         }
     }
 }

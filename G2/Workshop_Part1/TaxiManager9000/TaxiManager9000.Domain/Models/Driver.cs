@@ -33,5 +33,12 @@ namespace TaxiManager9000.Domain.Models
             string model = Car == null ? "no car assigned." : Car.Model;
             return $"{Id}) {FullName} Driving in the {Shift} shift with a {model}";
         }
+
+        public ExpiryStatus IsLicenseExpired()
+        {
+            if (DateTime.Today >= LicenseExpiryDate) return ExpiryStatus.Expired;
+            else if (DateTime.Today.AddMonths(3) >= LicenseExpiryDate) return ExpiryStatus.Warning;
+            else return ExpiryStatus.Valid;
+        }
     }
 }
