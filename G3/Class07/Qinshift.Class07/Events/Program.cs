@@ -18,3 +18,23 @@ User user3 = new User(3, "Jane Doe", "jane@mail.com", 26, ProductType.Cosmetics)
 
 // Subscribe user1 for promotion
 market.SubscribeForPromotion(user1.ReadPromotion, user1.Email);
+market.SubscribeForPromotion(user2.ReadPromotion, user2.Email);
+market.SubscribeForPromotion(user3.ReadPromotion, user3.Email);
+
+// Send promotions
+market.SendPromotions();
+
+Console.WriteLine("\n=======================================\n");
+
+// Unsubscribe user1
+market.UnsubscribeFromPromotions(user3.ReadPromotion, "I don't need promotions anymore.");
+
+// Send promotions
+market.SendPromotions();
+
+
+Console.WriteLine("\n============= Complaints =============\n");
+
+market.ReadComplaints();
+
+Console.ReadLine();
