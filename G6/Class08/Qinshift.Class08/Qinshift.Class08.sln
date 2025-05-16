@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35825.156 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.Delegates", "Qinshift.Delegates\Qinshift.Delegates.csproj", "{D1AC51EF-494C-4518-978F-63A67D600C27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.Events", "Qinshift.Events\Qinshift.Events.csproj", "{1F625A41-9F4B-46C5-8359-82F9ED16CBB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D1AC51EF-494C-4518-978F-63A67D600C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1AC51EF-494C-4518-978F-63A67D600C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1AC51EF-494C-4518-978F-63A67D600C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F625A41-9F4B-46C5-8359-82F9ED16CBB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F625A41-9F4B-46C5-8359-82F9ED16CBB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F625A41-9F4B-46C5-8359-82F9ED16CBB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F625A41-9F4B-46C5-8359-82F9ED16CBB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
