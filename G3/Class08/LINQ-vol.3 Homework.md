@@ -2,9 +2,7 @@
 
 ## Practice LINQ Vol. 3 🏋️‍♂️
 
-**** Requirements
-
-Certainly! Here are the **first 5 requirements** rewritten using only `Where` and `Select` logic — no mention of “first” or “last”:
+### Requirements
 
 1. Select the horsepower of US cars with more than 150 horsepower.
 2. Select the weight of European cars with less than 100 horsepower.
