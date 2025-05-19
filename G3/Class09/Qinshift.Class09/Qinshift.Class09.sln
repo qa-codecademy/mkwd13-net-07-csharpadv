@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.FileSystem", "Qins
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.Helpers", "Qinshift.Helpers\Qinshift.Helpers.csproj", "{4E9C876F-0836-4FBB-A3AB-95621914355B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.FileStreams", "Qinshift.FileStreams\Qinshift.FileStreams.csproj", "{DC9C7414-6EC0-4695-A8D9-A179588956BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4E9C876F-0836-4FBB-A3AB-95621914355B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E9C876F-0836-4FBB-A3AB-95621914355B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E9C876F-0836-4FBB-A3AB-95621914355B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9C7414-6EC0-4695-A8D9-A179588956BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9C7414-6EC0-4695-A8D9-A179588956BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9C7414-6EC0-4695-A8D9-A179588956BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9C7414-6EC0-4695-A8D9-A179588956BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
