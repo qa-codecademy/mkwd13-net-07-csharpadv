@@ -58,6 +58,10 @@ namespace TryBeingFit.Domain.Database
 
         public void Update(T entity)
         {
+            if (entity == null)
+            {
+                throw new NullReferenceException("Entity cannot be null");
+            }
             //first we search if the item that we want to update exists in our db (our items list)
             T item = GetById(entity.Id);
 
