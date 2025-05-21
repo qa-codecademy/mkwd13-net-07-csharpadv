@@ -1,24 +1,20 @@
-# Class 6 Homework 📒
+# Class 8 Homework 📒
 
-## Practice LINQ Vol. 2 🏋️‍♂️
+## Practice LINQ Vol. 3 🏋️‍♂️
 
-1) Filter all cars that have origin from Europe.
-2) Find all unique cylinder values for cars.
-3) Select all car names with their model names converted to uppercase.
-4) Check if there are any cars with horsepower greater than 300.
-5) Find the car with the highest horsepower.
-6) Filter all "Chevrolet" cars and order them by weight in descending order.
-7) Find the car with the longest model name.
-8) Group cars by their origin and then order the groups by the number of cars in each group, in ascending order.
-9) Find the first 5 cars with the highest horsepower. (hint: read about LINQ methods Skip() and Take())
-10) Find the car with the highest acceleration time.
-11) Select only the model and horsepower of cars with horsepower greater than 200. 
-12) Select all unique origins of cars, ordered alphabetically (ascending).  
-13) Select all cars with more than 4 cylinders, and order them by origin and then by horsepower. 
-14) Filter all cars that have more than 6 Cylinders not including 6 after that Filter all cars that have exactly 4 Cylinders and have HorsePower more then 110.0. Join them in one result.
-15) Filter all cars that have more then 200 HorsePower and Find out how much is the lowest, highest and average Miles per galon for these cars.
-16) Be creative and write requirement of your own choice :) (only one catch, must use at least 3 LINQ methods) 
-17) Be creative and write requirement of your own choice :) (only one catch, must use at least 3 LINQ methods)
+**** Requirements
+
+1. Select the horsepower of US cars with more than 150 horsepower.
+2. Select the weight of European cars with less than 100 horsepower.
+3. Select the origin of Japanese cars that weigh less than 2200.
+4. Select the cylinder count of US cars with exactly 8 cylinders.
+5. Select the miles per gallon of cars with more than 25 miles per gallon and acceleration time over 15 seconds.
+6. Get the acceleration time of the last 4-cylinder car with acceleration time less than 15 seconds.
+7. Get the model name of the first car that has 0 horsepower.
+8. Get the weight of the last Japanese car with more than 90 horsepower.
+9. Get the horsepower of the first US car that weighs more than 4000 and has fewer than 6 cylinders.
+10. Get the origin of the last car with acceleration time greater than 20 seconds.
+
 
 
 ### Setup
