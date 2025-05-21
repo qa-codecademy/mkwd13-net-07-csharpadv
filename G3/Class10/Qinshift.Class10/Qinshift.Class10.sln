@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.Helpers", "Qinshif
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.Disposable", "Qinshift.Disposable\Qinshift.Disposable.csproj", "{FA61D9A5-7C0E-4F8B-A6C6-DCA24B70926F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.Nullable", "Qinshift.Nullable\Qinshift.Nullable.csproj", "{23B096FB-8036-4F1A-8887-B75B51FEC5CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FA61D9A5-7C0E-4F8B-A6C6-DCA24B70926F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA61D9A5-7C0E-4F8B-A6C6-DCA24B70926F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA61D9A5-7C0E-4F8B-A6C6-DCA24B70926F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23B096FB-8036-4F1A-8887-B75B51FEC5CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B096FB-8036-4F1A-8887-B75B51FEC5CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B096FB-8036-4F1A-8887-B75B51FEC5CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B096FB-8036-4F1A-8887-B75B51FEC5CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
