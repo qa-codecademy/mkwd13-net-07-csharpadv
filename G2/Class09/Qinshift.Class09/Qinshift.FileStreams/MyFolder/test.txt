@@ -1,0 +1,4 @@
+Hello Qinshift Academy!
+This is a new line added in the same file!
+This is another text added to the file!
+ I hope that it will not override the prevoius text!

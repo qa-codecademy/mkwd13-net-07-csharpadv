@@ -1,0 +1,1 @@
+Hello there! We are learning how to insert text in file and it is awesome!
