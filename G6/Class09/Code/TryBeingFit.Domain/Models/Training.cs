@@ -10,5 +10,6 @@ namespace TryBeingFit.Domain.Models
         public double Time { get; set; }
         public double Rating { get; set; }
         public TrainingDifficultyEnum TrainingDifficulty { get; set; }
+        public Trainer Trainer { get; set; }
     }
 }
