@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using TaxiManager9000.App;
+
+TaxiManagerUI taxiManager = new TaxiManagerUI();
+
+taxiManager.InitApp();

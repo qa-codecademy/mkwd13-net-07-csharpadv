@@ -8,6 +8,14 @@
 
         public List<Driver> AsignedDrivers { get; set; } = new();
 
+        public Car(string model, string licensePlate, DateTime licensePlateExpieryDate)
+        {
+            Model = model;
+            LicensePlate = licensePlate;
+            LicensePlateExpieryDate = licensePlateExpieryDate;
+        }
+
+
         public override string GetInfo()
         {
             string drivers = string.Empty;

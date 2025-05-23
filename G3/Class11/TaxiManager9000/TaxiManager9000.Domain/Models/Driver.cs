@@ -11,6 +11,16 @@ namespace TaxiManager9000.Domain.Models
         public string License { get; set; } 
         public DateTime LicenseExpieryDate { get; set; }
 
+        public Driver(string firstName, string lastName, Shift shift, Car car, string license, DateTime licenseExpieryDate)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Shift = shift;
+            Car = car;
+            License = license;
+            LicenseExpieryDate = licenseExpieryDate;
+        }
+
         public override string GetInfo()
         {
             return $"Driver {FirstName} {LastName} with license {License} that expires on {LicenseExpieryDate} drives the car {Car.Model} model.";
