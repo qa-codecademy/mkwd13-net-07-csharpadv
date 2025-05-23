@@ -2,9 +2,9 @@
 {
     public static class ValidationHelper
     {
-        public static int ValidateNumberInput(string number, int range)
+        public static int ValidateNumberInput(string inputNumber, int range)
         {
-            bool isNumber = int.TryParse(number, out int num);
+            bool isNumber = int.TryParse(inputNumber, out int num);
             if (!isNumber || num <= 0 || num > range)
             {
                 return -1;

@@ -1,5 +1,6 @@
 ﻿using TaxiManager9000.Domain.Enums;
 using TaxiManager9000.Domain.Models;
+using TaxiManager9000.Helpers;
 using TaxiManager9000.Services.Abstraction.Interfaces;
 using TaxiManager9000.Services.Implementation;
 
@@ -23,7 +24,38 @@ namespace TaxiManager9000.App
 
         public void InitApp()
         {
+            while (true)
+            {
+                Console.Clear();
 
+                #region Login Menu
+                if (_userService.CurrentUser is null)
+                {
+                    try
+                    {
+                        ExtendedConsole.PrintTitle("\n\t*** Taxi Manager 9000 ***\n");
+                        int choice = _uiService.ChooseMenu(new List<string> { "Login", "Exit" });
+                        if (choice == -1)
+                        {
+                            ExtendedConsole.PrintError("Invalid choice! Try again...");
+                            continue;
+                        }
+                        if (choice == 2)
+                            break;
+
+                        User inputUser = _uiService.LoginMenu();
+                        _userService.LogIn(inputUser.Username, inputUser.Password);
+                        ExtendedConsole.PrintSuccess($"\nWelcome {_userService.CurrentUser.Role} {_userService.CurrentUser.Username}");
+                    }
+                    catch (Exception ex)
+                    {
+                        ExtendedConsole.PrintError($"\n{ex.Message}");
+                        continue;
+                    }
+                }
+
+                #endregion
+            }
         }
 
         /// <summary>
