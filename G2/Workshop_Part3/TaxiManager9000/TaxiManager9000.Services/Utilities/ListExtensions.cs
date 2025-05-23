@@ -43,6 +43,25 @@ namespace TaxiManager9000.Services.Utilities
                     Console.WriteLine($"Car Id: {car.Id} - Plate: {car.LicensePlate} with expiry date: {car.LicensePlateExpiryDate}");
                 }
             }
+            Console.ReadLine();
+        }
+
+        public static void PrintStatus(this List<Driver> list)
+        {
+            if(list.Count == 0)
+            {
+                ExtendedConsole.NoItemsMessage<Driver>();
+            }
+            else
+            {
+                foreach(var driver in list)
+                {
+                    ExpiryStatus status = driver.IsLicenseExpired();
+                    ExtendedConsole.Write($"[{status}]) ", StatusColorMapper[status]);
+                    Console.WriteLine($"Driver: {driver.FullName} with license {driver.License} with expiry date: {driver.LicenseExpiryDate}");
+                }
+            }
+            Console.ReadLine();
         }
     }
 }
