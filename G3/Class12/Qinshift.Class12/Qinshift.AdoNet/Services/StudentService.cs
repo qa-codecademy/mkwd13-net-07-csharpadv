@@ -13,7 +13,7 @@ namespace Qinshift.AdoNet.Services
         }
 
         /// <summary>
-        ///     Retrieves all student records from the database.
+        ///     Retrieves all student records from the database. HAHA
         /// </summary>
         /// <returns>A list of <see cref="Student"/> objects representing all students in the database.</returns>
         public List<Student> GetAllStudents()
@@ -60,7 +60,7 @@ namespace Qinshift.AdoNet.Services
                         LastName = reader.GetString(2),
                         DateOfBirth = reader.GetDateTime(3),
                         EnrolledDate = reader.GetDateTime(4),
-                        Gender = reader.GetChar(5),
+                        Gender = reader.GetString(5)[0],
                         NationalIdNumber = reader.GetInt64(6),
                         StudentCardNumber = reader.GetString(7)
                     };
@@ -69,6 +69,79 @@ namespace Qinshift.AdoNet.Services
             }
 
             return students;
+        }
+
+        /// <summary>
+        ///     Inserts a new student record into the database.
+        /// </summary>
+        /// <param name="student">The <see cref="Student"/> object containing the student data to insert.</param>
+        public void InsertStudent(Student student)
+        {
+            // 1. Establish the conneciton to the Database
+            using (SqlConnection sqlConnection = new(_connectionString))
+            {
+                sqlConnection.Open();
+
+                // 2. Write the SQL query
+                string query = $@"
+                    INSERT INTO dbo.Student (FirstName, LastName, DateOfBirth, EnrolledDate, Gender, NationalIdNumber, StudentCardNumber)
+                    VALUES(@FirstName, @LastName, @DOB, @EnrolledDate, @Gender, @NationalIdNumber, @StudentCardNumber)
+                ";
+
+                // ===> The issue here occured because of the ' before and after the placeholders values
+                //string query = $@"
+                //    INSERT INTO dbo.Student (FirstName, LastName, DateOfBirth, EnrolledDate, Gender, NationalIdNumber, StudentCardNumber)
+                //    VALUES('@FirstName', '@LastName', '@DOB', '@EnrolledDate', '@Gender', @NationalIdNumber, '@StudentCardNumber')
+                //";
+
+                // 3. Create sql command 
+                using SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                // 4. Map the insert values
+                sqlCommand.Parameters.AddWithValue("@LastName", student.LastName);
+                sqlCommand.Parameters.AddWithValue("@FirstName", (object?)student.FirstName ?? DBNull.Value);
+                sqlCommand.Parameters.AddWithValue("@EnrolledDate", student.EnrolledDate);
+                sqlCommand.Parameters.AddWithValue("@DOB", student.DateOfBirth);
+                sqlCommand.Parameters.AddWithValue("@Gender", student.Gender);
+                sqlCommand.Parameters.AddWithValue("@NationalIdNumber", student.NationalIdNumber);
+                sqlCommand.Parameters.AddWithValue("@StudentCardNumber", student.StudentCardNumber);
+
+                // 5. Execute the query
+                int rowsAffected = sqlCommand.ExecuteNonQuery();
+                Console.WriteLine("Rows Affected " + rowsAffected);
+            }
+        }
+
+        /// <summary>
+        ///     Inserts a new student record into the database.
+        ///     VULNERABLE TO SQL INJECTION !
+        /// </summary>
+        public void InsertStudentMalicious(Student student)
+        {
+            // 1. Establish the conneciton to the Database
+            using (SqlConnection sqlConnection = new(_connectionString))
+            {
+                sqlConnection.Open();
+
+                // BAD EXAMPLE => POSSIBLE SQL INJECTION VULNERABILITY
+                // SQL INJECTION => Malicious users can manipulate the input data to execute unintended SQL commands, potentially compromising your database and data.
+
+                // 2. Write the SQL query
+                string query = $@"
+                    INSERT INTO dbo.Student (FirstName, LastName, DateOfBirth, EnrolledDate, Gender, NationalIdNumber, StudentCardNumber)
+                    VALUES('{student.FirstName}', '{student.LastName}', '{student.DateOfBirth:yyyy-MM-dd}', '{student.EnrolledDate:yyyy-MM-dd}', '{student.Gender}', {student.NationalIdNumber}, '{student.StudentCardNumber}')
+                ";
+
+                // 3. Create sql command 
+                using SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                // 4. Execute the query
+                sqlCommand.ExecuteNonQuery();
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n\n\t============ Bye Bye Table... :) ============\n\n");
+                Console.ResetColor();
+            }
         }
     }
 }
