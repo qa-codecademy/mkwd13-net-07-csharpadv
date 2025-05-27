@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qinshift.AdoNet", "Qinshift.AdoNet\Qinshift.AdoNet.csproj", "{51A6EB3A-3F1C-4D9E-A470-5B4F3E08459B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51A6EB3A-3F1C-4D9E-A470-5B4F3E08459B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A6EB3A-3F1C-4D9E-A470-5B4F3E08459B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A6EB3A-3F1C-4D9E-A470-5B4F3E08459B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A6EB3A-3F1C-4D9E-A470-5B4F3E08459B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A7B1938-5751-4FDE-8BAD-83158025BD46}
+	EndGlobalSection
+EndGlobal
