@@ -65,20 +65,78 @@ namespace TaxiManager9000.App
                 switch (chosenMenuOption)
                 {
                     case MenuChoice.AddNewUser:
+                        ExtendedConsole.PrintInColor("\n===> Add New User", ConsoleColor.Cyan);
+                        string username = ExtendedConsole.GetInput("Username:");
+                        if (!ValidationHelper.ValidateUsername(username))
+                        {
+                            ExtendedConsole.PrintError("Username must have at least 5 characters!");
+                            continue;
+                        }
+                        string password = ExtendedConsole.GetInput("Password:");
+                        if (!ValidationHelper.ValidatePassword(password))
+                        {
+                            ExtendedConsole.PrintError("Password must have at least 5 characters with at least 1 number!");
+                            continue;
+                        }
+                        int role = _uiService.ChooseMenu(new List<string>
+                        {
+                            Role.Administrator.ToString(),
+                            Role.Manager.ToString(),
+                            Role.Maintenance.ToString()
+                        });
+
+                        try
+                        {
+                            _userService.CreateNewUser(username, password, (Role)role);
+                            ExtendedConsole.PrintSuccess("Successfully created new user.");
+                        }
+                        catch (Exception ex)
+                        {
+                            ExtendedConsole.PrintError($"\n{ex.Message}");
+                            continue;
+                        }
                         break;
                     case MenuChoice.RemoveExistingUser:
+                        List<User> users = _userService.GetFiltered(u => u.Id != _userService.CurrentUser.Id);
+                        int userChoice = _uiService.ChooseEntitiesMenu(users);
+                        if (userChoice == -1)
+                        {
+                            continue;
+                        }
+                        _userService.DeleteById(users[userChoice - 1].Id);
                         break;
                     case MenuChoice.ListAllDrivers:
+                        // Students implementation
                         break;
                     case MenuChoice.TaxiLicenseStatus:
+                        // Students implementation
                         break;
                     case MenuChoice.DriverManager:
+                        // Students implementation
                         break;
                     case MenuChoice.ListAllCars:
+                        // Students implementation
                         break;
                     case MenuChoice.LicensePlateStatus:
+                        // Students implementation
                         break;
                     case MenuChoice.ChangePassword:
+                        var oldPassword = ExtendedConsole.GetInput("Please enter old password: ");
+                        var newPassword = ExtendedConsole.GetInput("Please enter new password: ");
+                        if (!ValidationHelper.ValidateStringInput(newPassword) || !ValidationHelper.ValidateStringInput(oldPassword))
+                        {
+                            ExtendedConsole.PrintError("Please enter values!");
+                            continue;
+                        }
+                        bool changeSuccessfull = _userService.ChangePassword(oldPassword, newPassword);
+                        if (changeSuccessfull)
+                        {
+                            ExtendedConsole.PrintSuccess("Successfully changed password.");
+                        }
+                        else
+                        {
+                            ExtendedConsole.PrintError("Password change failed! Please try again.");
+                        }
                         break;
                     case MenuChoice.Exit:
                         _userService.CurrentUser = null;

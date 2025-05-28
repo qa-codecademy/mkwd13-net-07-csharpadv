@@ -8,6 +8,7 @@ namespace TaxiManager9000.Services.Abstraction.Interfaces
     {
         List<MenuChoice> MenuItems { get; set; }
         int ChooseMenu<T>(List<T> menus);
+        int ChooseEntitiesMenu<T>(List<T> entities) where T : BaseEntity;
         User LoginMenu();
         int MainMenu(Role role);
         void EndMenu();

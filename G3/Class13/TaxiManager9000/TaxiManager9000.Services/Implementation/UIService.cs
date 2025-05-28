@@ -27,6 +27,35 @@ namespace TaxiManager9000.Services.Implementation
             return choice;
         }
 
+        public int ChooseEntitiesMenu<T>(List<T> entities) where T : BaseEntity
+        {
+            Console.Clear();
+            if (entities.Count == 0)
+            {
+                ExtendedConsole.NoItemsMessage<T>();
+                Console.ReadLine();
+                return -1;
+            }
+
+            while (true)
+            {
+                Console.WriteLine("Enter a number to choose one of the following:");
+                for (int i = 0; i < entities.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}) {entities[i].GetInfo()}");
+                }
+                int choice = ValidationHelper.ValidateNumberInput(Console.ReadLine(), entities.Count);
+
+                if (choice == -1)
+                {
+                    ExtendedConsole.PrintError("Invalid choice! Try again...");
+                    Console.Clear();
+                    continue;
+                }
+                return choice;
+            }
+        }
+
         public User LoginMenu()
         {
             Console.Clear();
