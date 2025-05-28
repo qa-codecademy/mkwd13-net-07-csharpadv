@@ -2,6 +2,7 @@
 using TaxiManager9000.Domain.Models;
 using TaxiManager9000.Helpers;
 using TaxiManager9000.Services.Abstraction.Interfaces;
+using TaxiManager9000.Services.Enums;
 using TaxiManager9000.Services.Implementation;
 
 namespace TaxiManager9000.App
@@ -53,9 +54,40 @@ namespace TaxiManager9000.App
                         continue;
                     }
                 }
+                #endregion
 
+
+                #region Main Menu
+                int menuChoiceNumber = _uiService.MainMenu(_userService.CurrentUser.Role);
+
+                MenuChoice chosenMenuOption = _uiService.MenuItems[menuChoiceNumber - 1];
+
+                switch (chosenMenuOption)
+                {
+                    case MenuChoice.AddNewUser:
+                        break;
+                    case MenuChoice.RemoveExistingUser:
+                        break;
+                    case MenuChoice.ListAllDrivers:
+                        break;
+                    case MenuChoice.TaxiLicenseStatus:
+                        break;
+                    case MenuChoice.DriverManager:
+                        break;
+                    case MenuChoice.ListAllCars:
+                        break;
+                    case MenuChoice.LicensePlateStatus:
+                        break;
+                    case MenuChoice.ChangePassword:
+                        break;
+                    case MenuChoice.Exit:
+                        _userService.CurrentUser = null;
+                        continue;
+                }
                 #endregion
             }
+
+            _uiService.EndMenu();
         }
 
         /// <summary>
