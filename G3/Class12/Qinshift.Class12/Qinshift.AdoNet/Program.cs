@@ -51,4 +51,20 @@ Student newStudent = new Student
 studentService.InsertStudent(newStudent);
 
 
+PrintInColor("\n======= Get Student By Id =======", ConsoleColor.Cyan);
+
+if (int.TryParse(Console.ReadLine(), out int studentId))
+{
+    Student student = studentService.GetStudentById(studentId);
+    if (student is not null)
+    {
+        PrintInColor("Student Found !", ConsoleColor.Green);
+        PrintInColor(student.ToString(), ConsoleColor.Magenta);
+    }
+    else
+    {
+        PrintInColor("Student not found.", ConsoleColor.Red);
+    }
+}
+
 Console.ReadLine();
