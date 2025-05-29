@@ -8,7 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <ProjectReference Include="..\TaxiManager9000.Helpers\TaxiManager9000.Helpers.csproj" />
+    <ProjectReference Include="..\TaxiManager9000.Services\TaxiManager9000.Services.csproj" />
   </ItemGroup>
 
 </Project>

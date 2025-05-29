@@ -3,6 +3,9 @@ using Qinshift.AdoNet.Models;
 
 namespace Qinshift.AdoNet.Services
 {
+    // SqlConnection => used to establish connection to a database
+    // SqlCommand => execute SQL queries, stored procedures, and other database commands
+    // SqlDataReader => read data from a database
     public class StudentService
     {
         private readonly string _connectionString;
@@ -142,6 +145,59 @@ namespace Qinshift.AdoNet.Services
                 Console.WriteLine("\n\n\t============ Bye Bye Table... :) ============\n\n");
                 Console.ResetColor();
             }
+        }
+
+        /// <summary>
+        ///     Retrieves a student record by their unique ID.
+        /// </summary>
+        /// <param name="id">The ID of the student to retrieve.</param>
+        /// <returns>
+        ///     A <see cref="Student"/> object if a student with the specified ID exists; otherwise <i>null</i>.
+        /// </returns>
+        public Student? GetStudentById(int id)
+        {
+            Student? student = null;
+
+            // 1. Establish the conneciton to the Database
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                // 2. Write the SQL query
+                string query = @"
+                    SELECT s.ID, s.FirstName, s.LastName, s.DateOfBirth, s.EnrolledDate, s.Gender, s.NationalIdNumber, s.StudentCardNumber 
+                    FROM dbo.Student s
+                    WHERE s.ID = @StudentId
+                ";
+
+                // 3. Create sql command 
+                using SqlCommand command = new SqlCommand(query, connection);
+
+                // 4. Map the parameters
+                command.Parameters.AddWithValue("@StudentId", id);
+
+                // 5. Execute the sql command
+                using SqlDataReader reader = command.ExecuteReader();
+
+                // 6. Read the data from the executed query
+                if (reader.Read())
+                {
+                    // 7. Map the student info
+                    student = new Student
+                    {
+                        Id = reader.GetInt32(0),
+                        FirstName = reader.IsDBNull(1) ? null : reader.GetString(1),
+                        LastName = reader.IsDBNull(2) ? null : reader.GetString(2),
+                        DateOfBirth = reader.IsDBNull(3) ? null : reader.GetDateTime(3),
+                        EnrolledDate = reader.IsDBNull(4) ? null : reader.GetDateTime(4),
+                        Gender = reader.IsDBNull(5) ? null : reader.GetString(5)[0],
+                        NationalIdNumber = reader.IsDBNull(6) ? null : reader.GetInt64(6),
+                        StudentCardNumber = reader.IsDBNull(7) ? null : reader.GetString(7)
+                    };
+                }
+            }
+
+            return student;
         }
     }
 }
