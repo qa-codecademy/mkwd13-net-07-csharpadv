@@ -15,6 +15,7 @@ Usually, ORMs use this system and do these things easier and in fewer steps. Tha
 ### Using ADO.NET 🔸
 
 To use ADO.NET we need the **Microsoft.Data.SqlClient** library. Some of the project templates already contain a reference to this library. If not, it can simply be added through the NuGet package manager. To use ADO.NET we must follow some rules:  
+  
 0. Set the connection string to the database
 1. Create a method for some functionality
 2. Open an SQL Connection and provide the provided connection string
