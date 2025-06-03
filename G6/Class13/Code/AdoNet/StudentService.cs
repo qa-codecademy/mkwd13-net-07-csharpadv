@@ -1,5 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 using System.Net.Http.Headers;
+using System.Reflection;
 
 namespace AdoNet
 {
@@ -44,7 +46,7 @@ namespace AdoNet
                         LastName = reader.IsDBNull(2) ? "unnamed" : reader.GetString(2),
                         DateofBirth = reader.GetDateTime(3),
                         EnrolledDate = reader.GetDateTime(4),
-                        Gender = reader.GetString(5)[0], //our string is an array of chars
+                        Gender = reader.GetString(5)[0], //our string is an array of chars 
                         NationalIdNumber = reader.GetInt64(6),
                         StudentCardNumber = reader.GetString(7)
                     };
@@ -54,6 +56,44 @@ namespace AdoNet
                 return students;
 
             }//sqlConnection.Close() will be called when using ends
+        }
+
+        public void InsertStudent(Student student)
+        {
+            //1. Create and open a connection to the db
+            using(SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                sqlConnection.Open();
+
+                //2. Write the sql query
+                // John', 'Doe', '2000-01-01', '2025-01-01', 'M', 1234567890123, 'CA-2024-001'); DROP TABLE Student;--
+                //SQL Injection - we shouldn't use this way of sending data directly into the query
+                //string query = $"INSERT INTO dbo.Student(FirstName, LastName, DateOfBirth, EnrolledDate, Gender, NationalIdNumber, StudentCardNumber" +
+                //    $"VALUES({student.FirstName}, {student.LastName}, {student.DateofBirth}, {student.EnrolledDate}, {student.Gender},{student.NationalIdNumber}, {student.StudentCardNumber})";
+
+                //safe way is to use parameters
+                string query = $"INSERT INTO dbo.Student(FirstName, LastName, DateOfBirth, EnrolledDate, Gender, NationalIdNumber, StudentCardNumber)" +
+                    "VALUES (@FirstName, @LastName, @DateOfBirth, @EnrolledDate, @Gender, @NationalIdNumber, @StudentCardNumber)";
+
+                //3.Create sql command
+                using SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                //4. Map the inserted values for the params
+                sqlCommand.Parameters.AddWithValue("@FirstName", student.FirstName);
+                sqlCommand.Parameters.AddWithValue("@LastName", student.LastName);
+                sqlCommand.Parameters.AddWithValue("@DateOfBirth", student.DateofBirth);
+                sqlCommand.Parameters.AddWithValue("@EnrolledDate", student.EnrolledDate);
+                sqlCommand.Parameters.AddWithValue("@Gender", student.Gender);
+                sqlCommand.Parameters.AddWithValue("@NationalIdNumber", student.NationalIdNumber);
+                sqlCommand.Parameters.AddWithValue("@StudentCardNumber", student.StudentCardNumber);
+
+                //5. Execute the query
+                //when we execute an insert query there are no rows that we need to read
+                //that's why here we don't need a reader
+                int rowsAffected = sqlCommand.ExecuteNonQuery(); //this returns the number of rows affected
+                Console.WriteLine(rowsAffected);
+
+            }
         }
     }
 }
