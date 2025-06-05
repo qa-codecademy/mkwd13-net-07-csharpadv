@@ -86,6 +86,7 @@
     // 7. Methods names should be verbs / verb phrases
     // 8. Avoid unnecessary empty lines in the code
     // 9. Prefer using plural phrase for collection properties instead of adding the suffix words "List" or "Collection"
+
     #endregion
 
 
