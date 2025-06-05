@@ -25,6 +25,55 @@ namespace TryBeingFit.Services.Implementation
             //_database = new FileDatabase<T>();
         }
 
+        public T ChangeInfo(int userId, string firstName, string lastName)
+        {
+            //find the user
+            T user = _database.GetById(userId);
+            if(user == null)
+            {
+                throw new Exception("User does not exist");
+            }
+            if (!ValidationHelper.ValidateName(firstName))
+            {
+                throw new Exception("Invalid first name");
+            }
+
+            if (!ValidationHelper.ValidateName(lastName))
+            {
+                throw new Exception("Invalid last name");
+            }
+
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            _database.Update(user);
+            return user;
+        }
+
+        public T ChangePassword(int userId, string oldPassword, string newPassword)
+        {
+            //find the user
+            T user = _database.GetById(userId);
+            if (user == null)
+            {
+                throw new Exception("User does not exist");
+            }
+
+            //validation of old password
+            if(user.Password != oldPassword)
+            {
+                throw new Exception("Old passwords do not match");
+            }
+
+            //validation of the new password
+            if (!ValidationHelper.ValidatePassword(newPassword))
+            {
+                throw new Exception("Invalid password");
+            }
+            user.Password = newPassword;
+            _database.Update(user);
+            return user;
+        }
+
         public List<T> GetAllUsers()
         {
            List<T> allItems = _database.GetAll();
@@ -96,6 +145,17 @@ namespace TryBeingFit.Services.Implementation
 
             T user = _database.GetById(id); //the safest way to return all the data about the new user
             return user;
+        }
+
+        public void RemoveById(int userId)
+        {
+            //validation 
+            T user = _database.GetById(userId);
+            if(user == null)
+            {
+                throw new Exception("User does not exist");
+            }
+            _database.RemoveById(userId);
         }
     }
 }
