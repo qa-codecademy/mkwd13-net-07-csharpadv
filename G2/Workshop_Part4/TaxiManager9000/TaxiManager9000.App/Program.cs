@@ -9,6 +9,10 @@ using TaxiManager9000.Services.Utilities;
 
 IUIService uiService = new UIService();
 IDriverService driverService = new DriverService();
+
+UserAdoService userAdoService = new UserAdoService();
+
+
 IUserService userService = new UserService();
 ICarService carService = new CarService();
 
@@ -60,8 +64,9 @@ while (true)
                 ExtendedConsole.WriteLine("User is succ added in database", ConsoleColor.Green);
                 break;
             case MenuChoice.RemoveExistingUser:
-                List<User> users = userService.GetAll().Where(x=> x.Id != userService.CurrentUser.Id).ToList();
-                int choise = uiService.ChooseEntitiesMenu(users);
+                //List<User> users = userService.GetAll().Where(x=> x.Id != userService.CurrentUser.Id).ToList();
+                List<User> users = (await userAdoService.GetAllUsers()).Where(x=> x.Id != userService.CurrentUser.Id).ToList();
+            int choise = uiService.ChooseEntitiesMenu(users);
                 if (choise == -1) continue;
 
                 userService.Remove(users[choise-1].Id);

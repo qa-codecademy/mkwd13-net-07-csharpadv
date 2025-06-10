@@ -1,0 +1,33 @@
+
+
+CREATE DATABASE TaxiManager
+GO
+
+USE TaxiManager
+GO
+
+
+CREATE TABLE Cars (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Model NVARCHAR(100) NOT NULL,
+    LicensePlate NVARCHAR(50) NOT NULL,
+    LicensePlateExpieryDate DATE NOT NULL
+);
+
+CREATE TABLE Drivers (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    FirstName NVARCHAR(100) NOT NULL,
+    LastName NVARCHAR(100) NOT NULL,
+    Shift INT NOT NULL,
+    License NVARCHAR(100) NOT NULL,
+    LicenseExpieryDate DATE NOT NULL,
+    CarId INT NULL,
+    CONSTRAINT FK_Driver_Car FOREIGN KEY (CarId) REFERENCES Cars(Id)
+);
+
+CREATE TABLE [Users] (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Username NVARCHAR(100) NOT NULL UNIQUE,
+    [Password] NVARCHAR(100) NOT NULL,
+    Role INT NOT NULL
+);
